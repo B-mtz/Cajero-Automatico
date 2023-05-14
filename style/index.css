@@ -1,0 +1,21 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #8B0C3C;
+}
+.btn-custom {
+    background-color: #F68A1E;
+    border-color: #F68A1E;
+}
+
+.btn-custom:hover{
+    background-color: orange;
+    color: white;
+}
+.contenedor{
+    background-color: #C10037;
+    padding: 30px;
+    border-radius: 15px;
+}
