@@ -1,12 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="style/dashboard.css">
 </head>
+
 <body>
-    
+     <!-- Bienvenida-->
+    <header>
+        <nav class="navbar bg-body-tertiary">
+            <div class="container">
+                <a class="navbar-brand fs-5 alinear" href="#">
+                    <img class="alinear"
+                        src="https://static.vecteezy.com/system/resources/thumbnails/008/505/801/small_2x/bitcoin-logo-color-illustration-png.png"
+                        alt="Usuario" width="40">
+                    Bitcoin Bank
+                </a>
+                <button class="btn btn-outline-success me-2" type="button">Cerrar Sesion</button>
+            </div>
+        </nav>
+    </header>
+    <div class="card bienvenida">
+        <div class="card-body d-flex align-items-center">
+            <img class="d-inline p-1" src="https://cdn-icons-png.flaticon.com/512/8090/8090406.png" alt="Usuario"
+                width="80">
+            <h1 class="d-inline p-2">Bienvenido Usuario</h1>
+        </div>
+    </div>
+     <!-- Datos Generales-->
+    <div class="row general">
+        <div class="card general1 col align-self-start ">
+            <div class="card-header ">
+                Saldo Disponible
+            </div>
+            <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                    <h2 class="fs-2">$4000.67</h2>
+            </div>
+        </div>
+        <div class="card col align-self-end">
+            <div class="card-header ">
+                Tarjeta
+            </div>
+            <div class="card-body cardT">
+                <blockquote class="blockquote mb-0">
+                    <button class=" btn d-flex justify-content-start" id="mostrarTarjeta">**************6060 Ver mi
+                        tarjeta</button>
+            </div>
+        </div>
+    </div>
+   <!-- Tarjeta-->
+    <div class="tarjeta container oculta" id="tarjeta">
+        <div class="logo-tarjeta  d-flex justify-content-between">
+            <div class="BitcoinBank d-inline p-1">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/008/505/801/small_2x/bitcoin-logo-color-illustration-png.png"
+                    alt="Logo del banco">
+                <div class="nombre-banco d-inline p-1">BitcoinBank</div>
+            </div>
+            <div class="mastercard d-inline p-1">
+                <img src="https://www.freepnglogos.com/uploads/mastercard-png/mastercard-logo-mastercard-logo-png-vector-download-19.png"
+                    class="logo">
+                <div class="debito d-inline p-1">Debito</div>
+            </div>
+        </div>
+        <div class="numero-tarjeta">
+            1234 5678 9012 3456
+        </div>
+        <div class="titular-tarjeta">
+            Juan Pérez
+        </div>
+        <div class="info-tarjeta">
+            <div class="d-flex justify-content-between">
+                <div class="vencimiento-tarjeta">
+                    Vencimiento: 06/25
+                </div>
+                <div class="cvv-tarjeta">
+                    CVV: 123
+                </div>
+            </div>
+        </div>
+    </div>
+     <!-- Operaciones-->
+    <div class="row operaciones">
+        <div class="card">
+            <ul class="nav nav-pills mb-3 operaciones" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
+                        aria-selected="true">Desposito</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
+                        aria-selected="false">Retiro</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
+                        aria-selected="false">Transferencia</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
+                        aria-selected="false">Servicios</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
+                        aria-selected="false">Contactos</button>
+                </li>
+            </ul>
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"
+                    tabindex="0">...</div>
+                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"
+                    tabindex="0">
+                    ...</div>
+                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab"
+                    tabindex="0">
+                    ...</div>
+                <div class="tab-pane fade" id="pills-disabled" role="tabpanel" aria-labelledby="pills-disabled-tab"
+                    tabindex="0">...</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <script src="JS/dashboard.js"></script>
 </body>
+
 </html>
