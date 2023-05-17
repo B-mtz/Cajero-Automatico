@@ -133,13 +133,12 @@ body {
 }
 
 .nav-pills .nav-link:not(.active) {
-    background-color: #B10338;
-    background-image: linear-gradient(to bottom, #B50238, #AE0438);
+    background-color: null;
     color: #ffffff;
     font-weight: bolder;
 }
 
 /* Operaciones */
-.desposito {
+.deposito {
     margin: 30px;
 }

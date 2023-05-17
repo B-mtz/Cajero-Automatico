@@ -116,19 +116,19 @@
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="pills-contactos-tab" data-bs-toggle="pill"
-                                data-bs-target="#pills-contactos" type="button" role="tab" aria-controls="pills-contactos"
-                                aria-selected="false">Contactos</button>
+                                data-bs-target="#pills-contactos" type="button" role="tab"
+                                aria-controls="pills-contactos" aria-selected="false">contacto</button>
                         </li>
                     </ul>
                     <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="pills-depositar" role="tabpanel"
                             aria-labelledby="pills-depositar-tab" tabindex="0">
-                            <form class="desposito">
+                            <form class="deposito">
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label for="input1">Número de cuenta(10 dígitos)</label>
-                                            <input type="text" class="form-control" id="input1" pattern="[0-9]{10}"
+                                            <label for="DnCuenta">Número de cuenta(10 dígitos)</label>
+                                            <input type="text" class="form-control" id="DnCuenta" pattern="[0-9]{10}"
                                                 required>
                                             <div class="invalid-feedback">Por favor, ingresa 20 dígitos numéricos
                                                 enteros.
@@ -137,8 +137,8 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label for="input2">Cantidad ($50,000 maximo)</label>
-                                            <input type="text" class="form-control" id="input2"
+                                            <label for="Dcantidad">Cantidad ($50,000 maximo)</label>
+                                            <input type="text" class="form-control" id="Dcantidad"
                                                 pattern="^(?:[2-9]|[1-9]\d{1,4})$" required>
                                             <div class="invalid-feedback">Por favor, ingresa 5 dígitos numéricos
                                                 enteros.
@@ -148,8 +148,8 @@
                                 </div>
                                 <br>
                                 <div class="form-group">
-                                    <label for="input3">Motivo (máximo 200 caracteres)</label>
-                                    <textarea class="form-control" id="input3" maxlength="200" required></textarea>
+                                    <label for="Dmotivo">Motivo (máximo 200 caracteres)</label>
+                                    <textarea class="form-control" id="Dmotivo" maxlength="200" required></textarea>
                                     <div class="invalid-feedback">Por favor, ingresa un texto con máximo 200 caracteres.
                                     </div>
                                 </div>
@@ -170,7 +170,33 @@
                             Servicios</div>
                         <div class="tab-pane fade" id="pills-contactos" role="tabpanel"
                             aria-labelledby="ppills-contactoss-tab" tabindex="0">
-                            Contactos</div>
+                            <form class="deposito" id="nuevoContacto">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="CnCuenta">Número de cuenta(10 dígitos)</label>
+                                            <input type="text" class="form-control" id="CnCuenta" pattern="[0-9]{10}"
+                                                required>
+                                            <div class="invalid-feedback">Por favor, ingresa 20 dígitos numéricos
+                                                enteros.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="Cnombre">Nombre (máximo 25 caracteres)</label>
+                                            <input type="text" class="form-control" id="Cnombre" maxlength="25" required>
+                                            <div class="invalid-feedback">Por favor, ingresa 5 dígitos numéricos
+                                                enteros.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><br>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-custom">Agregar</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
