@@ -206,7 +206,6 @@ nuevaTransferencia.addEventListener('submit', function (event) {
 
 // Salir
 const Salir = document.getElementById('salir');
-Salir.addEventListener('submit', function (event) {
-  event.preventDefault();
-
+Salir.addEventListener('click', function () {
+  window.location.href = "index.html";
 });
