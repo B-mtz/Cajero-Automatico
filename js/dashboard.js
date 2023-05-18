@@ -142,22 +142,26 @@ nuevoRetiro.addEventListener('submit', function (event) {
 
   const rCantidad = document.getElementById('Rcantidad').value;
 
-  if (retiroxdia >= 30000) {
-    mensajeError.textContent = 'Se ha superado el límite de retiros por día';
+  if (cuentaEncontrada.saldo < parseInt(rCantidad)) {
+    mensajeError.textContent = 'Saldo insuficiente';
   } else {
-    if (rCantidad > 20) {
-      if (rCantidad < 30000) {
-        cuentaEncontrada.saldo -= parseInt(rCantidad);
-        cantidadCuenta.textContent = "$ " + cuentaEncontrada.saldo;
-        nuevoRetiro.reset();
-        mensajeError.textContent = '';
-        retiroCuenta.value = persona.cuenta;
-        retiroxdia += parseInt(rCantidad);
-      } else {
-        mensajeError.textContent = 'Los retiros deben ser menores a $30,000';
-      }
+    if (retiroxdia >= 30000) {
+      mensajeError.textContent = 'Se ha superado el límite de retiros por día';
     } else {
-      mensajeError.textContent = 'Los retiros deben ser mayores a $20';
+      if (rCantidad > 20) {
+        if (rCantidad < 30000) {
+          cuentaEncontrada.saldo -= parseInt(rCantidad);
+          cantidadCuenta.textContent = "$ " + cuentaEncontrada.saldo;
+          nuevoRetiro.reset();
+          mensajeError.textContent = '';
+          retiroCuenta.value = persona.cuenta;
+          retiroxdia += parseInt(rCantidad);
+        } else {
+          mensajeError.textContent = 'Los retiros deben ser menores a $30,000';
+        }
+      } else {
+        mensajeError.textContent = 'Los retiros deben ser mayores a $20';
+      }
     }
   }
 });
@@ -169,13 +173,17 @@ nuevoServicio.addEventListener('submit', function (event) {
   event.preventDefault();
 
   const sCantidad = document.getElementById('Scantidad').value;
-  if (sCantidad < 50000) {
-    cuentaEncontrada.saldo -= parseInt(sCantidad);
-    cantidadCuenta.textContent = "$ " + cuentaEncontrada.saldo;
-    nuevoServicio.reset();
-    mensajeError.textContent = '';
+  if (cuentaEncontrada.saldo < parseInt(sCantidad)) {
+    mensajeError.textContent = 'Saldo insuficiente';
   } else {
-    mensajeError.textContent = 'Solo se permiten servicios menores a $30,000';
+    if (sCantidad < 50000) {
+      cuentaEncontrada.saldo -= parseInt(sCantidad);
+      cantidadCuenta.textContent = "$ " + cuentaEncontrada.saldo;
+      nuevoServicio.reset();
+      mensajeError.textContent = '';
+    } else {
+      mensajeError.textContent = 'Solo se permiten servicios menores a $30,000';
+    }
   }
 });
 
@@ -189,19 +197,23 @@ nuevaTransferencia.addEventListener('submit', function (event) {
   seleccionarContacto
   var contactoSeleccionado = seleccionarContacto.selectedIndex;
 
-  if (contactoSeleccionado == 0) {
-    mensajeError.textContent = 'Selecciona un contacto';
+
+  if (cuentaEncontrada.saldo < parseInt(tCantidad)) {
+    mensajeError.textContent = 'Saldo insuficiente';
   } else {
-    if (tCantidad < 50000) {
-      cuentaEncontrada.saldo -= parseInt(tCantidad);
-      cantidadCuenta.textContent = "$ " + cuentaEncontrada.saldo;
-      nuevaTransferencia.reset();
-      mensajeError.textContent = '';
+    if (contactoSeleccionado == 0) {
+      mensajeError.textContent = 'Selecciona un contacto';
     } else {
-      mensajeError.textContent = 'Solo se permiten transferencias menores a $50,000';
+      if (tCantidad < 50000) {
+        cuentaEncontrada.saldo -= parseInt(tCantidad);
+        cantidadCuenta.textContent = "$ " + cuentaEncontrada.saldo;
+        nuevaTransferencia.reset();
+        mensajeError.textContent = '';
+      } else {
+        mensajeError.textContent = 'Solo se permiten transferencias menores a $50,000';
+      }
     }
   }
-
 });
 
 // Salir
