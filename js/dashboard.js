@@ -52,6 +52,7 @@ const tarjetavencimiento = document.getElementById('venci');
 const tarjetaCvv = document.getElementById('cv');
 const depositoCuenta = document.getElementById('DnCuenta');
 const retiroCuenta = document.getElementById('RnCuenta');
+const seleccionarContacto = document.getElementById("tContacto");
 
 nombreUsuario.textContent = "Bienvenido " + persona.nombre;
 cantidadCuenta.textContent = "$ " + cuentaEncontrada.saldo;
@@ -63,7 +64,6 @@ tarjetavencimiento.textContent = "Vencimiento: " + cuentaEncontrada.vencimiento;
 tarjetaCvv.textContent = "CVV: " + cuentaEncontrada.cvv;
 depositoCuenta.value = persona.cuenta;
 retiroCuenta.value = persona.cuenta;
-
 
 
 //Mostrar y Ocultar la tarjeta
@@ -94,6 +94,13 @@ nuevoContacto.addEventListener('submit', function (event) {
     numeroCuenta: numeroCuenta
   };
   contactos.push(contacto);
+
+  //Agregar contacto al select
+  var nuevaOpcion = document.createElement('option');
+  nuevaOpcion.textContent = contacto.nombre;
+  nuevaOpcion.value = contacto.id;
+  seleccionarContacto.appendChild(nuevaOpcion);
+
   // Restablecer el formulario
   nuevoContacto.reset();
 });
@@ -106,7 +113,7 @@ nuevoDeposito.addEventListener('submit', function (event) {
   const dCuenta = document.getElementById('DnCuenta').value;
   const dCantidad = document.getElementById('Dcantidad').value;
   const dmotivo = document.getElementById('Dmotivo').value;
-  
+
   if (depositoxdia >= 50000) {
     mensajeError.textContent = 'Se ha superado el límite de depósito por día';
   } else {
@@ -134,7 +141,7 @@ nuevoRetiro.addEventListener('submit', function (event) {
   event.preventDefault();
 
   const rCantidad = document.getElementById('Rcantidad').value;
-  
+
   if (retiroxdia >= 30000) {
     mensajeError.textContent = 'Se ha superado el límite de retiros por día';
   } else {
@@ -153,4 +160,53 @@ nuevoRetiro.addEventListener('submit', function (event) {
       mensajeError.textContent = 'Los retiros deben ser mayores a $20';
     }
   }
+});
+
+
+// Pagar Nuevo Servicio
+const nuevoServicio = document.getElementById('servicio');
+nuevoServicio.addEventListener('submit', function (event) {
+  event.preventDefault();
+
+  const sCantidad = document.getElementById('Scantidad').value;
+  if (sCantidad < 50000) {
+    cuentaEncontrada.saldo -= parseInt(sCantidad);
+    cantidadCuenta.textContent = "$ " + cuentaEncontrada.saldo;
+    nuevoServicio.reset();
+    mensajeError.textContent = '';
+  } else {
+    mensajeError.textContent = 'Solo se permiten servicios menores a $30,000';
+  }
+});
+
+// Nueva Transferencia
+const nuevaTransferencia = document.getElementById('nuevaTransferencia');
+nuevaTransferencia.addEventListener('submit', function (event) {
+  event.preventDefault();
+
+  const tCantidad = document.getElementById('tcantidad').value;
+
+  seleccionarContacto
+  var contactoSeleccionado = seleccionarContacto.selectedIndex;
+
+  if (contactoSeleccionado == 0) {
+    mensajeError.textContent = 'Selecciona un contacto';
+  } else {
+    if (tCantidad < 50000) {
+      cuentaEncontrada.saldo -= parseInt(tCantidad);
+      cantidadCuenta.textContent = "$ " + cuentaEncontrada.saldo;
+      nuevaTransferencia.reset();
+      mensajeError.textContent = '';
+    } else {
+      mensajeError.textContent = 'Solo se permiten transferencias menores a $50,000';
+    }
+  }
+
+});
+
+// Salir
+const Salir = document.getElementById('salir');
+Salir.addEventListener('submit', function (event) {
+  event.preventDefault();
+
 });

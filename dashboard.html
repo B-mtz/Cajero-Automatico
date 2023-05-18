@@ -24,7 +24,7 @@
                                 alt="Usuario" width="40">
                             Bitcoin Bank
                         </a>
-                        <button class="btn  btn-custom" type="button">Cerrar Sesion</button>
+                        <button class="btn  btn-custom" type="button" id="salir">Cerrar Sesion</button>
                     </div>
                 </nav>
             </header>
@@ -190,10 +190,74 @@
                         </div>
                         <div class="tab-pane fade" id="pills-transferencia" role="tabpanel"
                             aria-labelledby="pills-transferencia-tab" tabindex="0">
-                            Transferencia</div>
+                            <form class="deposito" id="nuevaTransferencia">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="tContacto">Contactos</label>
+                                            <select class="form-select" id="tContacto"
+                                                aria-label="Default select example">
+                                                <option selected>Selecciona un contacto</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="tcantidad">Cantidad ($50,000 maximo)</label>
+                                            <input type="text" class="form-control" id="tcantidad"
+                                                pattern="^(?:[2-9]|[1-9]\d{1,4})$" required>
+                                            <div class="invalid-feedback">Por favor, ingresa 5 dígitos numéricos
+                                                enteros.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><br>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-custom">Agregar</button>
+                                </div>
+                            </form>
+                        </div>
+
+
                         <div class="tab-pane fade" id="pills-servicios" role="tabpanel"
                             aria-labelledby="pills-servicios-tab" tabindex="0">
-                            Servicios</div>
+                            <form class="deposito" id="servicio">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="nconvenio">Número de convenio(14 dígitos)</label>
+                                            <input type="text" class="form-control" id="nconvenio" pattern="[0-9]{14}"
+                                                required>
+                                            <div class="invalid-feedback">Por favor, ingresa 14 dígitos numéricos
+                                                enteros.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="Scantidad">Cantidad ($50,000 maximo)</label>
+                                            <input type="text" class="form-control" id="Scantidad"
+                                                pattern="^(?:[2-9]|[1-9]\d{1,4})$" required>
+                                            <div class="invalid-feedback">Por favor, ingresa 5 dígitos numéricos
+                                                enteros.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <label for="nservicio">Numero de servicio(12 dígitos)</label>
+                                    <input type="text" class="form-control" id="nservicio" pattern="[0-9]{12}" required>
+                                    <div class="invalid-feedback">Por favor, ingresa 12 dígitos numéricos
+                                        enteros.
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-custom">Pagar</button>
+                                </div>
+                            </form>
+                        </div>
                         <div class="tab-pane fade" id="pills-contactos" role="tabpanel"
                             aria-labelledby="ppills-contactoss-tab" tabindex="0">
                             <form class="deposito" id="nuevoContacto">
@@ -211,7 +275,8 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="Cnombre">Nombre (máximo 25 caracteres)</label>
-                                            <input type="text" class="form-control" id="Cnombre" maxlength="25" required>
+                                            <input type="text" class="form-control" id="Cnombre" maxlength="25"
+                                                required>
                                             <div class="invalid-feedback">Por favor, ingresa 5 dígitos numéricos
                                                 enteros.
                                             </div>
