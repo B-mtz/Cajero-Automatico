@@ -113,9 +113,10 @@ nuevoDeposito.addEventListener('submit', function (event) {
   const dCuenta = document.getElementById('DnCuenta').value;
   const dCantidad = document.getElementById('Dcantidad').value;
   const dmotivo = document.getElementById('Dmotivo').value;
+  depositoxdia += parseInt(dCantidad);
 
   if (depositoxdia >= 50000) {
-    mensajeError.textContent = 'Se ha superado el límite de depósito por día';
+    mensajeError.textContent = 'Limite maximo de deposito por dia: $50,000';
   } else {
     if (dCantidad > 20) {
       if (dCantidad < 50000) {
@@ -124,7 +125,6 @@ nuevoDeposito.addEventListener('submit', function (event) {
         nuevoDeposito.reset();
         mensajeError.textContent = '';
         depositoCuenta.value = persona.cuenta;
-        depositoxdia += parseInt(dCantidad);
       } else {
         mensajeError.textContent = 'Los depósitos deben ser menores a $50,000';
       }
@@ -141,12 +141,13 @@ nuevoRetiro.addEventListener('submit', function (event) {
   event.preventDefault();
 
   const rCantidad = document.getElementById('Rcantidad').value;
+  retiroxdia += parseInt(rCantidad);
 
   if (cuentaEncontrada.saldo < parseInt(rCantidad)) {
     mensajeError.textContent = 'Saldo insuficiente';
   } else {
     if (retiroxdia >= 30000) {
-      mensajeError.textContent = 'Se ha superado el límite de retiros por día';
+      mensajeError.textContent = 'Limite maximo de retiro por dia:  $ 30,000';
     } else {
       if (rCantidad > 20) {
         if (rCantidad < 30000) {
@@ -155,7 +156,6 @@ nuevoRetiro.addEventListener('submit', function (event) {
           nuevoRetiro.reset();
           mensajeError.textContent = '';
           retiroCuenta.value = persona.cuenta;
-          retiroxdia += parseInt(rCantidad);
         } else {
           mensajeError.textContent = 'Los retiros deben ser menores a $30,000';
         }
