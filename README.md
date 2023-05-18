@@ -1,4 +1,4 @@
 # Cajero-Automatico
-* assets\login.png
+![image](assets\login.png)
 
-* assets\principal.png
+![image](assets\principal.png)
