@@ -1,20 +1,21 @@
 // Definición de la clase Persona
 class Persona {
-    constructor(usuario, contraseña, tarjeta, id) {
+    constructor(usuario, contraseña, cuenta, nombre, id) {
         this.usuario = usuario;
         this.contraseña = contraseña;
-        this.tarjeta = tarjeta;
+        this.cuenta = cuenta;
+        this.nombre = nombre
         this.id = id;
     }
 }
 
 // Creación del arreglo de objetos
 const personas = [
-    new Persona('root', 'root', '1234567890123456', 0),
-    new Persona('Juan', '12345', '5435734658347657', 1),
-    new Persona('Maria', 'a1b2c3', '0293472386473773', 2),
-    new Persona('Felipe', 'abcde', '9823486374637434', 3),
-    new Persona('Rosa', 'aabbccdd', '8234762736423859', 4)
+    new Persona('root', 'root',    '1234567890', 'Bernardo Mtz', 1),
+    new Persona('Juan', '12345',   '5435734658', 'Juan Ortiz',2),
+    new Persona('Maria', 'a1b2c3', '0293472386', 'Maria Perez',3),
+    new Persona('Felipe', 'abcde', '9823486374','Felipe Gonzales', 4),
+    new Persona('Rosa', 'aabbccdd','8234762736', 'Rosa Mendez',5)
 ];
 // Convertir el arreglo a una cadena JSON
 const personasJSON = JSON.stringify(personas);

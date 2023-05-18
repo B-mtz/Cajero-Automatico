@@ -32,7 +32,7 @@
                 <div class="card-body d-flex align-items-center">
                     <img class="d-inline p-1 img_user" src="https://cdn-icons-png.flaticon.com/512/8090/8090406.png"
                         alt="Usuario" width="80">
-                    <h1 class="d-inline p-2">Bienvenido Usuario</h1>
+                    <h1 class="d-inline p-2" id="nomUsuario">Bienvenido Usuario</h1>
                 </div>
             </div>
             <!-- Datos Generales-->
@@ -43,7 +43,7 @@
                     </div>
                     <div class="card-body">
                         <blockquote class="blockquote mb-0">
-                            <h2 class="fs-2">$4000.67</h2>
+                            <h2 class="fs-2" id="cantidadCuenta">$4000.67</h2>
                     </div>
                 </div>
                 <div class="card col align-self-end bg1 ">
@@ -53,9 +53,7 @@
                     <div class="card-body cardT">
                         <blockquote class="blockquote mb-0">
                             <button class=" btn d-flex justify-content-start bg1" id="mostrarTarjeta">**************6060
-                                Ver
-                                mi
-                                tarjeta</button>
+                                Ver mi tarjeta</button>
                     </div>
                 </div>
             </div>
@@ -73,19 +71,19 @@
                         <div class="debito d-inline p-1">Debito</div>
                     </div>
                 </div>
-                <div class="numero-tarjeta">
-                    1234 5678 9012 3456
+                <div class="numero-tarjeta" id="nTarjeta">
+                    prueba
                 </div>
-                <div class="titular-tarjeta">
-                    Juan Pérez
+                <div class="titular-tarjeta" id="titular">
+                    prueba
                 </div>
                 <div class="info-tarjeta">
                     <div class="d-flex justify-content-between">
-                        <div class="vencimiento-tarjeta">
-                            Vencimiento: 06/25
+                        <div class="vencimiento-tarjeta" id="venci">
+                            prueba
                         </div>
-                        <div class="cvv-tarjeta">
-                            CVV: 123
+                        <div class="cvv-tarjeta" id="cv">
+                            CVV: prueba
                         </div>
                     </div>
                 </div>
@@ -123,13 +121,13 @@
                     <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="pills-depositar" role="tabpanel"
                             aria-labelledby="pills-depositar-tab" tabindex="0">
-                            <form class="deposito">
+                            <form class="deposito" id="deposito">
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="DnCuenta">Número de cuenta(10 dígitos)</label>
                                             <input type="text" class="form-control" id="DnCuenta" pattern="[0-9]{10}"
-                                                required>
+                                                required disabled>
                                             <div class="invalid-feedback">Por favor, ingresa 20 dígitos numéricos
                                                 enteros.
                                             </div>
@@ -161,7 +159,35 @@
                         </div>
                         <div class="tab-pane fade" id="pills-retiro" role="tabpanel" aria-labelledby="pills-retiro-tab"
                             tabindex="0">
-                            retiro</div>
+                            <form class="deposito" id="retiro">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="DnCuenta">Número de cuenta(10 dígitos)</label>
+                                            <input type="text" class="form-control" id="RnCuenta" pattern="[0-9]{10}"
+                                                required disabled>
+                                            <div class="invalid-feedback">Por favor, ingresa 20 dígitos numéricos
+                                                enteros.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="Dcantidad">Cantidad ($30,000 maximo)</label>
+                                            <input type="text" class="form-control" id="Rcantidad"
+                                                pattern="^(?:[2-9]|[1-9]\d{1,4})$" required>
+                                            <div class="invalid-feedback">Por favor, ingresa 5 dígitos numéricos
+                                                enteros.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-custom">Retirar</button>
+                                </div>
+                            </form>
+                        </div>
                         <div class="tab-pane fade" id="pills-transferencia" role="tabpanel"
                             aria-labelledby="pills-transferencia-tab" tabindex="0">
                             Transferencia</div>
@@ -199,6 +225,7 @@
                         </div>
                     </div>
                 </div>
+                <div class="modal-dialog modal-sm" id="mensajeError" style="color: yellow;"></div>
             </div>
         </div>
     </div>
